@@ -8,7 +8,13 @@ public class Demo {
 
 	public static void main(String[] args) {
 		System.out.println("Initialised the program");
-		Reflections reflections = new Reflections("my.project");
+		
+//		Demo.class.getPackage().getName()
+		String name = Demo.class.getPackage().getName();
+		
+		assert name.equals("prs.zeno");
+		System.out.println(name);
+		Reflections reflections = new Reflections(name);
 
 		Set<Class<? extends MyClass>> subTypes = reflections.getSubTypesOf(MyClass.class);
 
